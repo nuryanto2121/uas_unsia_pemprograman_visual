@@ -47,6 +47,7 @@ Partial Class Form1
         Label3 = New Label()
         cbJurusan = New ComboBox()
         Button1 = New Button()
+        btnHapusAll = New Button()
         SuspendLayout()
         ' 
         ' Label1
@@ -199,7 +200,7 @@ Partial Class Form1
         ' 
         ' btnKeluar
         ' 
-        btnKeluar.Location = New Point(484, 321)
+        btnKeluar.Location = New Point(574, 321)
         btnKeluar.Name = "btnKeluar"
         btnKeluar.Size = New Size(75, 23)
         btnKeluar.TabIndex = 20
@@ -273,14 +274,24 @@ Partial Class Form1
         Button1.Name = "Button1"
         Button1.Size = New Size(75, 23)
         Button1.TabIndex = 23
-        Button1.Text = "&Edit"
+        Button1.Text = "&Clear"
         Button1.UseVisualStyleBackColor = True
+        ' 
+        ' btnHapusAll
+        ' 
+        btnHapusAll.Location = New Point(478, 321)
+        btnHapusAll.Name = "btnHapusAll"
+        btnHapusAll.Size = New Size(75, 23)
+        btnHapusAll.TabIndex = 24
+        btnHapusAll.Text = "Hapus &All"
+        btnHapusAll.UseVisualStyleBackColor = True
         ' 
         ' Form1
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         ClientSize = New Size(923, 598)
+        Controls.Add(btnHapusAll)
         Controls.Add(Button1)
         Controls.Add(cbJurusan)
         Controls.Add(txtNilai)
@@ -337,4 +348,5 @@ Partial Class Form1
     Friend WithEvents Label3 As Label
     Friend WithEvents cbJurusan As ComboBox
     Friend WithEvents Button1 As Button
+    Friend WithEvents btnHapusAll As Button
 End Class

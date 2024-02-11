@@ -97,6 +97,8 @@ Public Class Form1
                 ListView1.Items.Remove(ListView1.SelectedItems(0))
                 Call clearInput()
             End If
+        Else
+            MessageBox.Show("Silahkan klik data yanag akan dihapus terlebih dahulu", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End If
     End Sub
@@ -114,8 +116,10 @@ Public Class Form1
             If txtNilai.Text >= 70 Then
                 ListView1.SelectedItems(0).SubItems(8).Text = "Lulus"
             Else
-                ListView1.SelectedItems(0).SubItems(8).Text = "Lulus""Tidak Lulus"
+                ListView1.SelectedItems(0).SubItems(8).Text = "Lulus Tidak Lulus"
             End If
+        Else
+            MessageBox.Show("Silahkan klik data yanag akan diedit terlebih dahulu", "Informasi", MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         End If
         Call clearInput()
@@ -173,5 +177,14 @@ Public Class Form1
         End Using
     End Sub
 
+    Private Sub btnHapusAll_Click(sender As Object, e As EventArgs) Handles btnHapusAll.Click
 
+        Dim result As DialogResult = MessageBox.Show("Yakin Anda akan menghapus data ini?", "Konfirmasi", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+
+        If result = DialogResult.Yes Then
+            ListView1.Items.Clear()
+        End If
+
+
+    End Sub
 End Class
