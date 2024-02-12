@@ -17,7 +17,7 @@ Public Class Form1
             Dim selectedFilePath As String
             selectedFilePath = ofd.FileName
             'call procedur membaca file csv
-            Call readCsvFileN(selectedFilePath)
+            Call readCsvFile(selectedFilePath)
         End If
     End Sub
 
@@ -137,7 +137,7 @@ Public Class Form1
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Call clearInput()
     End Sub
-    Private Sub readCsvFileN(pathFile As String)
+    Private Sub readCsvFile(pathFile As String)
         Using MyReader As New TextFieldParser(pathFile)
             MyReader.TextFieldType = FileIO.FieldType.Delimited
             MyReader.SetDelimiters(",")
@@ -161,7 +161,9 @@ Public Class Form1
                         tglLahir = currentRow(4)
                         alamat = currentRow(5)
                         jurusan = currentRow(6)
-                        nilai = currentRow(7)
+
+                        'validasi nilai harus integer
+                        nilai = CInt(currentRow(7))
 
                         'call procedur simpan data mahasiswa
                         Call simpanMahasiswa(nim, nama, jenisKelamin, tempatLahir, tglLahir, alamat, jurusan, nilai)
@@ -169,8 +171,8 @@ Public Class Form1
 
 
                     i += 1
-                Catch ex As MalformedLineException
-                    MsgBox("Line " & ex.Message &
+                Catch ex As Exception
+                    MsgBox("Line " & i + 1 & " " & ex.Message &
                     "is not valid and will be skipped.")
                 End Try
             End While
